@@ -281,7 +281,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
 <div><b>Nature</b><span>Scientific Reports article on melanoma detection</span></div>
 <div><b>7</b><span>research outputs, 1 journal article and 6 conference papers</span></div>
 <div><b>5</b><span>undergraduate and master's theses supervised</span></div>
-<div><b>2×</b><span>Latin honours, Summa and Magna Cum Laude at AIUB</span></div>
+<div><b>2×</b><span>medalist at AIUB, Gold for MSc and Silver for BSc</span></div>
 </div>
 </div>
 </section>
@@ -445,13 +445,14 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let i=0;
 document.querySelectorAll('.name .w').forEach(w=>{w.innerHTML=[...w.textContent].map(c=>`<span class="ch" style="--i:${i++}">${esc(c)}</span>`).join('')});
-const words=['Explainable AI','Medical image analysis','Deep learning','Computer vision','Grad-CAM','Breast lesion triage','Melanoma detection','Fake news detection','RAG evaluation','Sentiment modelling'];
-document.getElementById('track').innerHTML=[...words,...words].map(w=>`<span>${esc(w)}</span>`).join('');
+const words=['Medical Image Analysis','Explainable AI','Computer Vision','Natural Language Processing','Trustworthy AI'];
+document.getElementById('track').innerHTML=[...words,...words,...words,...words].map(w=>`<span>${esc(w)}</span>`).join('');
 const areas=[
-{t:'Medical image analysis',d:'Skin lesion, oral cancer, breast lesion and brain CT detection from dermoscopy, mammography, ultrasound and CT.'},
+{t:'Medical Image Analysis',d:'Lesion detection and segmentation across dermoscopy, mammography, ultrasound and CT, from melanoma and breast cancer to stroke and liver cancer.'},
 {t:'Explainable AI',d:'Grad-CAM and attention attribution that show clinicians and users where a model is looking.'},
-{t:'Computer vision',d:'CNN and CNN-Transformer models for detection and classification, including deepfake detection.'},
-{t:'Language and trust',d:'BERT-BiLSTM sentiment modelling, Bangla fake news detection and hallucination checks for RAG systems.'}
+{t:'Computer Vision',d:'CNN and CNN-Transformer models for detection and classification, including deepfake detection.'},
+{t:'Natural Language Processing',d:'Sentiment modelling, Bangla fake news detection and mental health text analysis.'},
+{t:'Trustworthy AI',d:'Hallucination detection for RAG systems, leakage-free evaluation and models whose results hold up beyond the benchmark.'}
 ];
 const acc=document.getElementById('acc');
 acc.innerHTML=areas.map((a,k)=>`<div class="row${k===0?' on':''}" tabindex="0"><span class="n">(${String(k+1).padStart(2,'0')})</span><h3>${esc(a.t)}</h3><p>${esc(a.d)}</p><span class="go" aria-hidden="true">↗</span></div>`).join('');
